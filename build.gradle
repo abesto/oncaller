@@ -1,0 +1,25 @@
+buildscript {
+    ext {
+        kotlinVersion = '0.1-SNAPSHOT'
+    }
+    repositories {
+        jcenter()
+        maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+repositories {
+    jcenter()
+    maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+apply plugin: 'kotlin2js'
+compileKotlin2Js.kotlinOptions.outputFile = "web/js/app.js"
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-js-library:$kotlinVersion"
+}
+
